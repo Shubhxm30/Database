@@ -2,7 +2,6 @@ const express = require ('express');
 const app = express();
 const mongoose = require ('mongoose');
 const path = require ('path');
-const chat = require('./models/chat.js');
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
