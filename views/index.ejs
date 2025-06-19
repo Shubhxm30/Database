@@ -8,12 +8,23 @@
 </head>
 <body>
     <h2>All Chats</h2>
+    <form method="GET" action="/chats/new">
+        <button class="btn">New Chat</button>
+    </form>
   <%  for (let chat of chats){ %>
     <div class = "chat">
         <p>from: <%= chat.from %></p>
         <p class="msg">message: <%= chat.Message %></p>
         <p>Recieved By: <%= chat.To %> </p>
         <hr>
+         <p><%= chat.created_at.toString().split(" ")[4] %></p>
+         <p><%= chat.created_at.toString().split(" ").slice(1,4).join("_") %></p>
+         <form method="GET" action="/chats/<%= chat._id %>/edit">
+            <button>Edit</button>
+         </form>
+         <form method="POST" action="/chats/<%= chat._id %>?_method=DELETE">
+            <button>delete</button>
+         </form>
     </div>
     <br>
     <br>
